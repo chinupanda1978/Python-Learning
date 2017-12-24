@@ -1,7 +1,10 @@
+#!/bin/python
 import os
-x=os.system("useradd Chinu 1>output.txt 2>error.txt")
-if(x):
-	print("User Chinu  already exist")
-else:
-	print("user Chinu created successfully")
-exit()
+for i in ["sashi", "chinu", "ajaya", "ganesh", "dipti"]:
+	V_Ret=os.system("id "+i+" 1> /dev/null 2> /dev/null")
+	if V_Ret==0:
+		print(i, "User is already exist...")
+	else:
+		os.system("useradd "+i)
+
+		print(i, "User created successfully...")
